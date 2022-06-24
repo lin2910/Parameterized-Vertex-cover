@@ -18,18 +18,18 @@ void printList(listArc* list);
 
 void deleteList(listArc* list);
 
-// Создание копии списка дуг
+// РЎРѕР·РґР°РЅРёРµ РєРѕРїРёРё СЃРїРёСЃРєР° РґСѓРі
 listArc* copy(listArc* original);
 
-// Удалить из списка дуг все дуги, в которые входит вершина с номером vertex
-// Номер вершин считается с единицы
+// РЈРґР°Р»РёС‚СЊ РёР· СЃРїРёСЃРєР° РґСѓРі РІСЃРµ РґСѓРіРё, РІ РєРѕС‚РѕСЂС‹Рµ РІС…РѕРґРёС‚ РІРµСЂС€РёРЅР° СЃ РЅРѕРјРµСЂРѕРј vertex
+// РќРѕРјРµСЂ РІРµСЂС€РёРЅ СЃС‡РёС‚Р°РµС‚СЃСЏ СЃ РµРґРёРЅРёС†С‹
 void deleteVertexFromList(listArc*& list, int vertex);
 void deleteVertexFromList(listArc*& list, int vertex, int& countOperation);
 
-// Удалить из списка первую дугу
+// РЈРґР°Р»РёС‚СЊ РёР· СЃРїРёСЃРєР° РїРµСЂРІСѓСЋ РґСѓРіСѓ
 void deleteFirstArc(listArc*& list);
 
-// Количество различных вершин в списке list
+// РљРѕР»РёС‡РµСЃС‚РІРѕ СЂР°Р·Р»РёС‡РЅС‹С… РІРµСЂС€РёРЅ РІ СЃРїРёСЃРєРµ list
 int listSize(listArc* list, const size_t size, int& countOperation);
 
 int* reductio(listArc*& list, const size_t size, int* inCover, size_t& size_cover, size_t & renum_size, const int ParamK, int& countOperation, std::vector<std::string>& trace);
