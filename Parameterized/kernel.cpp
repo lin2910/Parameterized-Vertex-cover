@@ -3,8 +3,6 @@
 #include <vector>
 
 
-
-
 void generate(int** matrix, const size_t size, const int  uCount, int* inCover, int*& result, size_t& record, const size_t n, int& countOperation, const size_t to)
 {
 	for (size_t i = 0; i < to; i++) {
@@ -62,7 +60,7 @@ bool makeCover(int** matrix, const size_t size, const int  uCount, const int* in
 size_t countUinCover(int** matrix, const size_t size, const int* cover, const size_t size_cover, int& countOperation) {
 	size_t count = 0;
 
-	//äóãè ìåæäó ýëåìåíòàìè â ïîêðûòèè è ýëåìåíòàìè âûøå
+	//Ð´ÑƒÐ³Ð¸ Ð¼ÐµÐ¶Ð´Ñƒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ð¼Ð¸ Ð² Ð¿Ð¾ÐºÑ€Ñ‹Ñ‚Ð¸Ð¸ Ð¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ð¼Ð¸ Ð²Ñ‹ÑˆÐµ
 	for (size_t i = 0; i < size_cover; i++)
 	{
 		for (size_t j = cover[i]; j < size; j++)
@@ -75,7 +73,7 @@ size_t countUinCover(int** matrix, const size_t size, const int* cover, const si
 		}
 	}
 
-	//ïðîïóùåííûå äóãè
+	//Ð¿Ñ€Ð¾Ð¿ÑƒÑ‰ÐµÐ½Ð½Ñ‹Ðµ Ð´ÑƒÐ³Ð¸
 	size_t size_not_cover;
 	int* notInCover = reversArr(cover, size, size_not_cover, countOperation);
 	for (size_t i = 0; i < size_not_cover; i++)
@@ -95,8 +93,6 @@ size_t countUinCover(int** matrix, const size_t size, const int* cover, const si
 	delete[]notInCover;
 	return count;
 }
-
-
 
 void generateRevers(int** matrix, const size_t size, const int  uCount, int* inCover, int*& result, size_t& record, const size_t n, int& countOperation, const size_t from)
 {
@@ -132,7 +128,6 @@ bool generateRevers(int** matrix, const size_t size, const int  uCount, int* inC
 	}
 	return false;
 }
-
 
 bool makeReverseCover(int** matrix, const size_t size, const int  uCount, const int* inCover, size_t& record, int& countOperation) {
 	size_t size_cover;
