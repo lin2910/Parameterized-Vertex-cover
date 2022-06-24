@@ -40,10 +40,10 @@ int main(int argc, const char* argv[]) {
 
 			vector<string> trace;
 
-			//начало отсчета времени
+			//РЅР°С‡Р°Р»Рѕ РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
 			clock_t start = clock();
 
-			// Редуция данных
+			// Р РµРґСѓС†РёСЏ РґР°РЅРЅС‹С…
 			int* renumeration = reductio(list, size, inCover, size_cover, renum_size, ParamK, countOperation, trace);
 
 			countOperation++;
@@ -54,8 +54,8 @@ int main(int argc, const char* argv[]) {
 					isSolveExist = true;
 				}
 				else {
-					// обработка ядра
-					trace.push_back("Обрабатываем ядро из " + to_string(listSize(list, size, countOperation)) + " вершин.");
+					// РѕР±СЂР°Р±РѕС‚РєР° СЏРґСЂР°
+					trace.push_back("РћР±СЂР°Р±Р°С‚С‹РІР°РµРј СЏРґСЂРѕ РёР· " + to_string(listSize(list, size, countOperation)) + " РІРµСЂС€РёРЅ.");
 
 					generate(list, size, inCover, size_cover, renumeration, temp, renum_size, countOperation, renum_size / 2);
 					if (isItCover(copy(original), inCover, size_cover, countOperation)) {
@@ -79,10 +79,10 @@ int main(int argc, const char* argv[]) {
 					}
 				}
 			}
-			// конец отсчета времени
+			// РєРѕРЅРµС† РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
 			clock_t stop = clock();
 
-			// количество секунд
+			// РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРµРєСѓРЅРґ
 			double seconds = double(stop - start) / CLOCKS_PER_SEC;
 
 
@@ -146,10 +146,10 @@ int main(int argc, const char* argv[]) {
 
 	vector<string> trace;
 
-	//начало отсчета времени
+	//РЅР°С‡Р°Р»Рѕ РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
 	clock_t start = clock();
 
-	// Редуция данных
+	// Р РµРґСѓС†РёСЏ РґР°РЅРЅС‹С…
 	int* renumeration = reductio(list, size, inCover, size_cover, renum_size, ParamK, countOperation, trace);
 	for (size_t i = 0; i < size; i++)
 	{
@@ -166,8 +166,8 @@ int main(int argc, const char* argv[]) {
 			isSolveExist = true;
 		}
 		else {
-			// обработка ядра
-			trace.push_back("Обрабатываем ядро из " + to_string(listSize(list, size, countOperation))+ " вершин.");
+			// РѕР±СЂР°Р±РѕС‚РєР° СЏРґСЂР°
+			trace.push_back("РћР±СЂР°Р±Р°С‚С‹РІР°РµРј СЏРґСЂРѕ РёР· " + to_string(listSize(list, size, countOperation))+ " РІРµСЂС€РёРЅ.");
 			if (generate(list, size, inCover, size_cover, renumeration, temp, renum_size, countOperation, renum_size / 2)) {
 				countOperation++;
 				if (size_cover <= ParamK)
@@ -191,10 +191,10 @@ int main(int argc, const char* argv[]) {
 	}
 	
 
-	// конец отсчета времени
+	// РєРѕРЅРµС† РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
 	clock_t stop = clock();
 
-	// количество секунд
+	// РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРµРєСѓРЅРґ
 	double seconds = double(stop - start) / CLOCKS_PER_SEC;
 
 	if (isSolveExist) {
@@ -202,7 +202,7 @@ int main(int argc, const char* argv[]) {
 		put_number(OutputFile_v, size_cover);
 	}
 	else {
-		put_string(OutputFile_r, "нет решения");
+		put_string(OutputFile_r, "РЅРµС‚ СЂРµС€РµРЅРёСЏ");
 		put_number(OutputFile_v, (double)0);
 	}
 	put_number(OutputFile_t, seconds, countOperation);
