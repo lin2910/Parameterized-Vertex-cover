@@ -200,23 +200,23 @@ int* reductio(listArc*& list, const size_t size, int* inCover, size_t& size_cove
 
 		for (size_t i = 0; i < size; i++)
 		{
-			if (count[i] == 0) { // изолированные вершины
+			if (count[i] == 0) { // РёР·РѕР»РёСЂРѕРІР°РЅРЅС‹Рµ РІРµСЂС€РёРЅС‹
 				countOperation++;
 				if (renumeration[i] != -1) {
-					trace.push_back("Удаляем изолированную вершину " + std::to_string(i + 1) + '.');
-					//std::cout << "Удаляем изолированную вершину " << i+1 << std::endl;
+					trace.push_back("РЈРґР°Р»СЏРµРј РёР·РѕР»РёСЂРѕРІР°РЅРЅСѓСЋ РІРµСЂС€РёРЅСѓ " + std::to_string(i + 1) + '.');
+					//std::cout << "РЈРґР°Р»СЏРµРј РёР·РѕР»РёСЂРѕРІР°РЅРЅСѓСЋ РІРµСЂС€РёРЅСѓ " << i+1 << std::endl;
 				}
 				countOperation++;
 				renumeration[i] = -1;
 			}
 			if (count[i] == 1) {
-				listArc* p = list;  // ищем соседнюю с висячей вершиной 
+				listArc* p = list;  // РёС‰РµРј СЃРѕСЃРµРґРЅСЋСЋ СЃ РІРёСЃСЏС‡РµР№ РІРµСЂС€РёРЅРѕР№ 
 				while (p) {
 					countOperation++;
 					if (p->start == i + 1) {
 						countOperation++;
 						flag = true;
-						trace.push_back("Для вершины " + std::to_string(i + 1) + " помещаем в покрытие ее соседа " + std::to_string(p->end) + "; k =" + std::to_string(ParamK) + '.');
+						trace.push_back("Р”Р»СЏ РІРµСЂС€РёРЅС‹ " + std::to_string(i + 1) + " РїРѕРјРµС‰Р°РµРј РІ РїРѕРєСЂС‹С‚РёРµ РµРµ СЃРѕСЃРµРґР° " + std::to_string(p->end) + "; k =" + std::to_string(ParamK) + '.');
 						renumeration[p->end-1] = -1;
 						//std::cout << "add in cover " << p->end << std::endl;
 						add(inCover, size, size_cover, p->end, countOperation);
@@ -228,7 +228,7 @@ int* reductio(listArc*& list, const size_t size, int* inCover, size_t& size_cove
 						if (p->end == i + 1) {
 							countOperation++;
 							flag = true;
-							trace.push_back("Для вершины " + std::to_string(i + 1) + " помещаем в покрытие ее соседа " + std::to_string(p->start) + "; k =" + std::to_string(ParamK) + '.');
+							trace.push_back("Р”Р»СЏ РІРµСЂС€РёРЅС‹ " + std::to_string(i + 1) + " РїРѕРјРµС‰Р°РµРј РІ РїРѕРєСЂС‹С‚РёРµ РµРµ СЃРѕСЃРµРґР° " + std::to_string(p->start) + "; k =" + std::to_string(ParamK) + '.');
 							renumeration[p->start-1] = -1;
 							//std::cout << "add in cover " << p->start << std::endl;
 							add(inCover, size, size_cover, p->start, countOperation);
@@ -244,15 +244,15 @@ int* reductio(listArc*& list, const size_t size, int* inCover, size_t& size_cove
 				flag = true;
 				
 				renumeration[i] = -1;
-				trace.push_back("Помещаем в покрытие вершину " + std::to_string(i + 1) + " степени " + std::to_string(count[i]) +  " больше k; k = " + std::to_string(ParamK) + '.');
-				//std::cout << "Помещаем в покрытие вершину " << i + 1 << std::endl;
+				trace.push_back("РџРѕРјРµС‰Р°РµРј РІ РїРѕРєСЂС‹С‚РёРµ РІРµСЂС€РёРЅСѓ " + std::to_string(i + 1) + " СЃС‚РµРїРµРЅРё " + std::to_string(count[i]) +  " Р±РѕР»СЊС€Рµ k; k = " + std::to_string(ParamK) + '.');
+				//std::cout << "РџРѕРјРµС‰Р°РµРј РІ РїРѕРєСЂС‹С‚РёРµ РІРµСЂС€РёРЅСѓ " << i + 1 << std::endl;
 				add(inCover, size, size_cover, i + 1, countOperation);
 				deleteVertexFromList(list, i + 1);
 			}
 		}
 	}
 	int j = 0;
-	// Несколько раз проходим в поиске новых вершин для добавления в покрытие
+	// РќРµСЃРєРѕР»СЊРєРѕ СЂР°Р· РїСЂРѕС…РѕРґРёРј РІ РїРѕРёСЃРєРµ РЅРѕРІС‹С… РІРµСЂС€РёРЅ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РІ РїРѕРєСЂС‹С‚РёРµ
 	countOperation += 2 * size;
 	for (size_t i = 0; i < size; i++)
 	{
@@ -276,7 +276,7 @@ int* reductio(listArc*& list, const size_t size, int* inCover, size_t& size_cove
 
 bool generate(listArc* list, const size_t size, int* inCover, size_t& size_cover, int * renumeration, int* arr, size_t n, size_t k, int& countOperation) {
 	if (k == -1 || n == -1) {
-		// проверка 
+		// РїСЂРѕРІРµСЂРєР° 
 
 		countOperation++;
 		if (isItCover(copy(list), size, renumeration, arr, countOperation)) {
@@ -325,7 +325,7 @@ bool generate(listArc* list, const size_t size, int* inCover, size_t& size_cover
 
 bool generateRevers(listArc* list, const size_t size, int* inCover, size_t& size_cover, int* renumeration, int* arr, size_t n, size_t k, int& countOperation) {
 	if (k == -1 || n == -1) {
-		// проверка 
+		// РїСЂРѕРІРµСЂРєР° 
 		countOperation++;
 		size_t arr_size = 0;
 		for (size_t i = 0; i < size; i++) {
@@ -392,7 +392,7 @@ bool isItCover(listArc* list, const size_t size, int * renumeration, int* arr, i
 			if (renumeration[j] == arr[i])
 			{
 				//std::cout << renumeration[j] << ' ' << j +1 << std::endl;
-				deleteVertexFromList(list, j + 1);// удалять соответсвующую перенумерованную вершину
+				deleteVertexFromList(list, j + 1);// СѓРґР°Р»СЏС‚СЊ СЃРѕРѕС‚РІРµС‚СЃРІСѓСЋС‰СѓСЋ РїРµСЂРµРЅСѓРјРµСЂРѕРІР°РЅРЅСѓСЋ РІРµСЂС€РёРЅСѓ
 				break;
 			}
 		}
